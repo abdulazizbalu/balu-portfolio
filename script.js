@@ -42,9 +42,8 @@ document.querySelector("#project-grid").innerHTML = projects.map((project) => `
     <h3>${project.name}</h3>
     <p>${project.description}</p>
     <div>
-      <a href="${project.demo}">Live demo</a>
-      <a href="${project.code}">Code</a>
+      <a href="${project.demo}" target="_blank" rel="noopener">Live demo</a>
+      <a href="${project.code}" target="_blank" rel="noopener">Code</a>
     </div>
   </article>
 `).join("");
-
