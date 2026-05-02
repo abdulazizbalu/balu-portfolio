@@ -1,7 +1,7 @@
 const projects = [
   {
     name: "AI Campaign Orchestrator",
-    tag: "Flagship",
+    tag: "AI Product",
     description: "Turns one business goal into a multi-channel campaign system with tasks, prompts, review gates, and exports.",
     demo: "https://abdulazizbalu.github.io/ai-campaign-orchestrator/",
     code: "https://github.com/abdulazizbalu/ai-campaign-orchestrator"
@@ -12,6 +12,27 @@ const projects = [
     description: "Intent routing API for setup, pricing, and AI quality support questions.",
     demo: "https://abdulazizbalu.github.io/smart-support-agent-api/",
     code: "https://github.com/abdulazizbalu/smart-support-agent-api"
+  },
+  {
+    name: "LLMOps Release Guard",
+    tag: "AI DevOps",
+    description: "CI-ready guardrail checker for AI service releases: health checks, env policy, model budget, and rollback readiness.",
+    demo: "https://abdulazizbalu.github.io/llmops-release-guard/",
+    code: "https://github.com/abdulazizbalu/llmops-release-guard"
+  },
+  {
+    name: "AI Observability Kit",
+    tag: "LLMOps",
+    description: "Ops dashboard for AI latency, cost, error budget, token usage, and reliability signals.",
+    demo: "https://abdulazizbalu.github.io/ai-observability-kit/",
+    code: "https://github.com/abdulazizbalu/ai-observability-kit"
+  },
+  {
+    name: "RAG Deploy Blueprint",
+    tag: "DevOps",
+    description: "Production-style deployment blueprint for RAG services with Docker, health checks, config validation, and runbooks.",
+    demo: "https://abdulazizbalu.github.io/rag-deploy-blueprint/",
+    code: "https://github.com/abdulazizbalu/rag-deploy-blueprint"
   },
   {
     name: "Media Command Center",
