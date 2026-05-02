@@ -1,10 +1,31 @@
 const projects = [
   {
     name: "AI Campaign Orchestrator",
-    tag: "AI Product",
-    description: "Turns one business goal into a multi-channel campaign system with tasks, prompts, review gates, and exports.",
+    tag: "Flagship SaaS",
+    description: "Mini-SaaS campaign system with provider mode, campaign library, prompt packs, roadmap, review gates, and exports.",
     demo: "https://abdulazizbalu.github.io/ai-campaign-orchestrator/",
     code: "https://github.com/abdulazizbalu/ai-campaign-orchestrator"
+  },
+  {
+    name: "AI Eval Lab",
+    tag: "AI Quality",
+    description: "Prompt regression tests with scoring, datasets, deterministic mock model, and CI quality gates.",
+    demo: "https://abdulazizbalu.github.io/ai-eval-lab/",
+    code: "https://github.com/abdulazizbalu/ai-eval-lab"
+  },
+  {
+    name: "RAG Knowledge Agent",
+    tag: "RAG",
+    description: "Knowledge base agent with chunking, mock vector search, cited answers, and Docker-ready structure.",
+    demo: "https://abdulazizbalu.github.io/rag-knowledge-agent/",
+    code: "https://github.com/abdulazizbalu/rag-knowledge-agent"
+  },
+  {
+    name: "Agent Workflow Studio",
+    tag: "AI Agents",
+    description: "Agent workflow engine with planner, tools, memory, human approval gate, retries, and execution logs.",
+    demo: "https://abdulazizbalu.github.io/agent-workflow-studio/",
+    code: "https://github.com/abdulazizbalu/agent-workflow-studio"
   },
   {
     name: "Smart Support Agent API",
