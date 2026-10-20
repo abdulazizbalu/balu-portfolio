@@ -9,7 +9,7 @@
   --green2: #22c55e;
   --text: #b8f7c0;
   --muted: #6fa77a;
-  --dim: #3f6e48;
+  --dim: #5b8f66;
   --amber: #ffb000;
   --red: #ff4d4d;
   --font: "JetBrains Mono", "Cascadia Code", Consolas, Menlo, monospace;
@@ -274,3 +274,12 @@ h1 em { font-style: normal; color: var(--green); text-shadow: var(--glow); }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* history */
+.history { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.history li { display: grid; grid-template-columns: 150px 1fr; gap: 18px; background: var(--bg); padding: 16px 20px; }
+.history li:hover { background: var(--bg2); }
+.history .when { color: var(--amber); font-weight: 700; font-size: 14px; }
+.history .role { color: var(--green); font-weight: 700; margin: 0; }
+.history .what { color: var(--muted); font-size: 14px; margin: 4px 0 0; }
+@media (max-width: 640px) { .history li { grid-template-columns: 1fr; gap: 4px; } }

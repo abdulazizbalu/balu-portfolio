@@ -44,6 +44,7 @@
       ["open <name> open a repo, e.g. open cobol-equiv"],
       ["clients     work under NDA"],
       ["services    what you can hire me for"],
+      ["history     career"],
       ["log         recent history"],
       ["contact     how to reach me"],
       ["clear       clear the screen"],
@@ -56,8 +57,10 @@
     log: () => { go("log"); return [["git log --since=2026-06 opened below"]]; },
     contact: () => [["telegram  @Abdulaziz6301", "hi"], ["mail      abdushkin2001@gmail.com"], ["github    github.com/abdulazizbalu"]],
     hire: () => COMMANDS["sudo"](["hire-me"]),
+    history: () => { go("history"); return [["2021 editor → 2022 full-stack → 2023 YouTube → 2026 AI + full-stack"]]; },
     sudo: (args) => {
       if ((args[0] || "") === "hire-me") {
+        if (typeof window.ym === "function") window.ym(113689053, "reachGoal", "sudo_hire_me");
         setTimeout(() => window.open("https://t.me/Abdulaziz6301", "_blank", "noopener"), 700);
         return [["[sudo] permission granted. opening telegram...", "hi"]];
       }
@@ -131,6 +134,15 @@
     }, 6500);
   }
 
+  // analytics goals: telegram and email clicks
+  document.addEventListener("click", (ev) => {
+    const link = ev.target.closest && ev.target.closest("a[href]");
+    if (!link || typeof window.ym !== "function") return;
+    if (link.href.includes("t.me/")) window.ym(113689053, "reachGoal", "telegram_click");
+    else if (link.href.startsWith("mailto:")) window.ym(113689053, "reachGoal", "email_click");
+    else if (link.href.includes("github.com/abdulazizbalu/")) window.ym(113689053, "reachGoal", "repo_click");
+  });
+
   // project filters
   const chips = document.querySelectorAll(".chip");
   chips.forEach((chip) => chip.addEventListener("click", () => {
@@ -143,7 +155,7 @@
 
   // reveal on scroll
   if (!reduce && "IntersectionObserver" in window) {
-    const els = document.querySelectorAll(".card, .case, .svc, .process li, .log-month, .upstream li, .format, .contact .win");
+    const els = document.querySelectorAll(".card, .case, .svc, .process li, .log-month, .upstream li, .history li, .format, .contact .win");
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
     }, { rootMargin: "0px 0px -8% 0px" });
