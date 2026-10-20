@@ -39,7 +39,7 @@
 
   // ---------------------------------------------------------------- copy email
   $$("[data-copy]").forEach((b) => b.addEventListener("click", async (ev) => {
-    const ok = b.parentElement.querySelector(".copy-ok");
+    const ok = (b.closest(".envelope") || document).querySelector(".copy-ok");
     if (!navigator.clipboard) return;
     ev.preventDefault();
     try { await navigator.clipboard.writeText(b.dataset.copy); } catch (_) { location.href = "mailto:" + b.dataset.copy; return; }
@@ -146,6 +146,16 @@
   };
   if (window.rough || !document.querySelector("canvas[data-demo]")) boot(); else addEventListener("load", boot);
   let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => demos.forEach((d) => d.redraw()), 150); });
+
+  // ---------------------------------------------------------------- consent (EN pages only render the card)
+  const card = document.querySelector("[data-consent]");
+  if (card) {
+    let choice = null;
+    try { choice = localStorage.getItem("balu-consent"); } catch (_) { /* private mode */ }
+    if (!choice) setTimeout(() => { card.hidden = false; }, 1200);
+    card.querySelector("[data-consent-yes]").addEventListener("click", () => { store.set("balu-consent", "yes"); card.hidden = true; window.baluMetrica?.(); });
+    card.querySelector("[data-consent-no]").addEventListener("click", () => { store.set("balu-consent", "no"); card.hidden = true; });
+  }
 
   // ---------------------------------------------------------------- retro OS easter egg
   $$("[data-os]").forEach((b) => {
