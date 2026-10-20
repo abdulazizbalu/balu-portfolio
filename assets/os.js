@@ -19,9 +19,9 @@
 
   const L = RU ? {
     projects: "проекты", nda: "архив.nda", terminal: "терминал", history: "опыт.log", services: "услуги.man", contact: "контакт.sh",
-    readme: "readme.txt", upstream: "upstream", trash: "корзина", about: "О BALU-OS", classic: "Классический вид", shutdown: "Выключить...",
+    readme: "readme.txt", upstream: "upstream", trash: "корзина", about: "О BALU-OS", classic: "Вернуться на сайт", shutdown: "Выключить...",
     reboot: "Перезагрузить", all: "все", items: "объектов", open: "открыть", caseStudy: "разбор проекта →", skip: "нажмите любую клавишу, чтобы пропустить",
-    off: "Теперь компьютер можно выключить.", offSub: "нажмите любую клавишу, чтобы загрузиться снова", saver: "любое движение, чтобы вернуться",
+    off: "Теперь компьютер можно выключить.", offSub: "нажмите любую клавишу, чтобы вернуться на сайт", saver: "любое движение, чтобы вернуться",
     decrypt: "расшифровать всё", denied: "ДОСТУП ЗАПРЕЩЁН: NDA", copy: "скопировать email", copied: "скопировано",
     trashText: "сомнения.txt · дедлайны-сорванные.log (пусто) · \"и так сойдёт\".bak", emptyTrash: "очистить корзину",
     trashDone: "нечего удалять. хороший инстинкт.", welcome: "Добро пожаловать в BALU-OS",
@@ -30,9 +30,9 @@
     apps: "Приложения", status: "беру проекты",
   } : {
     projects: "projects", nda: "nda.archive", terminal: "terminal", history: "history.log", services: "services.man", contact: "contact.sh",
-    readme: "readme.txt", upstream: "upstream", trash: "trash", about: "About BALU-OS", classic: "Classic view", shutdown: "Shut down...",
+    readme: "readme.txt", upstream: "upstream", trash: "trash", about: "About BALU-OS", classic: "Back to the site", shutdown: "Shut down...",
     reboot: "Restart", all: "all", items: "items", open: "open", caseStudy: "read the case study →", skip: "press any key to skip",
-    off: "It is now safe to turn off your computer.", offSub: "press any key to boot again", saver: "move the mouse to come back",
+    off: "It is now safe to turn off your computer.", offSub: "press any key to return to the site", saver: "move the mouse to come back",
     decrypt: "decrypt all", denied: "ACCESS DENIED: NDA", copy: "copy email", copied: "copied",
     trashText: "doubts.txt · missed-deadlines.log (empty) · good-enough.bak", emptyTrash: "empty trash",
     trashDone: "nothing to delete. good instinct.", welcome: "Welcome to BALU-OS",
@@ -183,7 +183,7 @@
     menu(logo, [
       [L.about, () => openApp("readme")],
       "-",
-      [L.classic, () => { store.set("balu-view", "classic"); teardown(); }],
+      [L.classic, () => teardown()],
       [L.reboot, () => { teardown(); store.set("balu-booted", "", sessionStorage); start(false); }],
       [L.shutdown, shutdown],
     ]);
@@ -644,7 +644,7 @@
     goal("os_shutdown");
     const o = el("div", "os-off", `<div>${esc(L.off)}<small>${esc(L.offSub)}</small></div>`);
     root.appendChild(o);
-    const again = () => { removeEventListener("keydown", again); o.removeEventListener("click", again); teardown(); store.set("balu-booted", "", sessionStorage); start(false); };
+    const again = () => { removeEventListener("keydown", again); o.removeEventListener("click", again); teardown(); };
     setTimeout(() => { addEventListener("keydown", again); o.addEventListener("click", again); }, 600);
   }
 
@@ -717,11 +717,7 @@
   }
 
   // ------------------------------------------------------------------ init (after all declarations)
-  const launchBtn = document.querySelector("[data-os-launch]");
-  if (capable && launchBtn) {
-    launchBtn.hidden = false;
-    launchBtn.addEventListener("click", () => { store.set("balu-view", "os"); start(true); });
-  }
-  const forceClassic = /[?&]classic\b/.test(location.search);
-  if (capable && !forceClassic && store.get("balu-view") !== "classic") start(false);
+  // Retro mode is opt-in: launched from the command palette or the footer link.
+  window.baluOS = { capable, start: () => start(false), stop: teardown };
+  if (/[?&]os\b/.test(location.search) && capable) start(false);
 })();

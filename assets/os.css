@@ -1,5 +1,13 @@
 /* BALU-OS desktop layer. Loaded only on wide screens with a fine pointer. */
 body.os-on { overflow: hidden; }
+#os, .os-cmd-scope {
+  --bg: #040904; --bg2: #071107; --panel: #081208; --bar: #0a170b; --line: #163a1b; --line2: #1d6b26;
+  --green: #39ff14; --green2: #22c55e; --text: #b8f7c0; --muted: #6fa77a; --dim: #5b8f66; --amber: #ffb000; --red: #ff4d4d;
+  --font: "JetBrains Mono", "Geist Mono", Consolas, Menlo, monospace;
+  --glow: 0 0 6px rgba(57, 255, 20, 0.55), 0 0 18px rgba(57, 255, 20, 0.18);
+  color-scheme: dark;
+}
+
 body.os-on > .top, body.os-on > main, body.os-on > .foot { visibility: hidden; }
 
 #os {
@@ -184,7 +192,7 @@ body.os-on > .top, body.os-on > main, body.os-on > .foot { visibility: hidden; }
 @keyframes os-glitch { 0% { filter: none; transform: none; } 50% { filter: hue-rotate(90deg) saturate(2); transform: translate(3px, -2px) skewX(1deg); } 100% { filter: none; transform: translate(-3px, 1px); } }
 
 /* amber phosphor theme */
-html[data-theme="amber"] {
+html[data-theme="amber"] #os {
   --green: #ffb000; --green2: #ffc94a; --text: #ffe7b8; --muted: #c9a15c; --dim: #a07f45; --line: #3a2a0e; --line2: #6b4a12; --amber: #39ff14;
   --bg: #090604; --bg2: #120c05; --bar: #171007; --glow: 0 0 6px rgba(255,176,0,0.55), 0 0 18px rgba(255,176,0,0.18);
 }
@@ -197,3 +205,4 @@ html[data-theme="amber"] #os { background:
   .osw, .osw.closing, .os-boot::before, .os-off::before, #os.glitch { animation: none !important; }
 }
 html[data-theme="amber"] .osw { background: #0e0904; }
+#os kbd { background: none; border-bottom-width: 1px; font: inherit; }

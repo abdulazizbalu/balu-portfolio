@@ -13,7 +13,7 @@ test("positioning is present", () => {
   assert.match(home, /AI Specialist/);
   assert.match(home, /Full-Stack Developer/);
   assert.match(home, /Digital Media Strategist/);
-  assert.match(home, /<h1[^>]*>[\s\S]*Abdulaziz Abdujalilov/);
+  assert.match(home, /<h1[^>]*>[\s\S]*Abdulaziz Abdujalilov[\s\S]*full.stack developer in Tashkent/);
 });
 
 test("flagship open-source projects are linked", () => {
@@ -49,7 +49,7 @@ test("sitemap lists every indexable page", () => {
 });
 
 test("client work stays anonymous", () => {
-  assert.match(home, /--nda/);
+  assert.match(home, /under NDA/);
   const all = pages.map(read).join("\n") + read("assets/os.js") + read("assets/main.js");
   for (const banned of [/corpadvisor/i, /kadrovik/i, /top ?advisor/i, /lexadvisor/i, /norma\b/i, /buxgalter/i]) {
     assert.doesNotMatch(all, banned);
@@ -63,7 +63,7 @@ test("contact uses Telegram and external links are safe", () => {
     for (const tag of blank) assert.match(tag, /rel="noopener/, `${p}: ${tag}`);
   }
   assert.match(home, /https:\/\/t.me\/Abdulaziz6301/);
-  assert.match(read("assets/main.js"), /sudo/);
+  assert.match(read("assets/main.js"), /cmdk/);
 });
 
 test("no em dashes in copy", () => {
