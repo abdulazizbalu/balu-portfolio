@@ -32,7 +32,6 @@
     if (!a) return;
     const h = a.getAttribute("href") || "";
     if (h.includes("t.me/")) goal("telegram_click");
-    else if (h.startsWith("mailto:")) goal("email_click");
     else if (h.includes("github.com/")) goal("repo_click");
     else if (h.includes("work/")) goal("case_open");
   });
@@ -147,15 +146,46 @@
   if (window.rough || !document.querySelector("canvas[data-demo]")) boot(); else addEventListener("load", boot);
   let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => demos.forEach((d) => d.redraw()), 150); });
 
-  // ---------------------------------------------------------------- consent (EN pages only render the card)
-  const card = document.querySelector("[data-consent]");
-  if (card) {
-    let choice = null;
-    try { choice = localStorage.getItem("balu-consent"); } catch (_) { /* private mode */ }
-    if (!choice) setTimeout(() => { card.hidden = false; }, 1200);
-    card.querySelector("[data-consent-yes]").addEventListener("click", () => { store.set("balu-consent", "yes"); card.hidden = true; window.baluMetrica?.(); });
-    card.querySelector("[data-consent-no]").addEventListener("click", () => { store.set("balu-consent", "no"); card.hidden = true; });
-  }
+  // ---------------------------------------------------------------- email picker
+  // mailto: opens whatever app the visitor's system has (often not their real inbox),
+  // so offer Gmail, Outlook, copy, or the default app.
+  const L = RU
+    ? { gmail: "открыть в Gmail", outlook: "открыть в Outlook", copy: "скопировать адрес", app: "почтовое приложение", done: "скопировано ✓" }
+    : { gmail: "open in Gmail", outlook: "open in Outlook", copy: "copy address", app: "default mail app", done: "copied ✓" };
+  let pick = null;
+  const closePick = () => { pick?.remove(); pick = null; };
+  document.addEventListener("click", (ev) => {
+    if (pick && !pick.contains(ev.target)) closePick();
+    const a = ev.target.closest('a[href^="mailto:"]');
+    if (!a || a.hasAttribute("data-copy")) return;
+    ev.preventDefault();
+    const u = new URL(a.href.replace("mailto:", "https://x/?to="));
+    const to = decodeURIComponent(a.href.slice(7).split("?")[0]);
+    const su = u.searchParams.get("subject") || "";
+    const q = encodeURIComponent;
+    pick = document.createElement("div");
+    pick.className = "mailpick";
+    pick.setAttribute("role", "menu");
+    pick.innerHTML =
+      `<p class="addr">${to}</p>` +
+      `<a role="menuitem" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=${q(to)}&su=${q(su)}">${L.gmail}</a>` +
+      `<a role="menuitem" target="_blank" rel="noopener" href="https://outlook.live.com/mail/0/deeplink/compose?to=${q(to)}&subject=${q(su)}">${L.outlook}</a>` +
+      `<button type="button" role="menuitem" data-c>${L.copy}</button>` +
+      `<a role="menuitem" href="${a.href}">${L.app}</a>`;
+    document.body.appendChild(pick);
+    const r = a.getBoundingClientRect();
+    const left = Math.min(Math.max(12, r.left), innerWidth - pick.offsetWidth - 12);
+    const top = r.bottom + 10 + pick.offsetHeight < innerHeight ? r.bottom + 10 : r.top - pick.offsetHeight - 10;
+    pick.style.left = left + "px"; pick.style.top = top + scrollY + "px";
+    pick.querySelector("[data-c]").addEventListener("click", async (e2) => {
+      e2.stopPropagation();
+      try { await navigator.clipboard.writeText(to); e2.target.textContent = L.done; goal("email_copy"); } catch (_) { /* ignore */ }
+      setTimeout(closePick, 900);
+    });
+    pick.querySelectorAll("a").forEach((x) => x.addEventListener("click", () => { goal("email_click"); setTimeout(closePick, 50); }));
+    pick.querySelector("a")?.focus();
+  });
+  addEventListener("keydown", (ev) => { if (ev.key === "Escape") closePick(); });
 
   // ---------------------------------------------------------------- retro OS easter egg
   $$("[data-os]").forEach((b) => {

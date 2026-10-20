@@ -338,11 +338,8 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .envelope { padding: 28px 22px; }
 }
 
-/* consent card (EN pages, Yandex Metrica only) */
-.consent { position: fixed; left: 20px; bottom: 20px; z-index: 60; width: 300px; padding: 16px 18px 14px; background: var(--card); color: #1d2433; box-shadow: var(--shadow); transform: rotate(-1deg); font-size: 14.5px; line-height: 1.5; background-image: repeating-linear-gradient(transparent 0 23px, #d7e4f3 23px 24px); }
-.consent[hidden] { display: none; }
-.consent p { margin-bottom: 10px; }
-.consent button { margin-right: 14px; padding: 0; background: none; border: 0; cursor: pointer; font: 700 22px/1 var(--hand); color: #2747a8; }
-.consent button + button { color: #5f6676; }
-.consent button:hover { color: #c93c33; }
-@media (max-width: 760px) { .consent { left: 12px; right: 12px; width: auto; bottom: 12px; } }
+/* email picker */
+.mailpick { position: absolute; z-index: 70; min-width: 230px; padding: 12px 16px 10px; background: var(--card); color: #1d2433; box-shadow: var(--shadow); transform: rotate(-0.8deg); background-image: repeating-linear-gradient(transparent 0 27px, #d7e4f3 27px 28px); }
+.mailpick .addr { font: 500 13.5px/1.4 var(--mono); color: #5f6676; margin-bottom: 4px; }
+.mailpick a, .mailpick button { display: block; width: 100%; padding: 0; background: none; border: 0; text-align: left; cursor: pointer; font: 700 22px/28px var(--hand); color: #2747a8; text-decoration: none; }
+.mailpick a:hover, .mailpick button:hover, .mailpick a:focus-visible, .mailpick button:focus-visible { color: #c93c33; }
