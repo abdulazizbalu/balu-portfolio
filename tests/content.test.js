@@ -63,7 +63,7 @@ test("contact uses Telegram and external links are safe", () => {
     for (const tag of blank) assert.match(tag, /rel="noopener/, `${p}: ${tag}`);
   }
   assert.match(home, /https:\/\/t.me\/Abdulaziz6301/);
-  assert.match(read("assets/main.js"), /cmdk/);
+  assert.match(read("assets/main.js"), /data-demo/);
 });
 
 test("no em dashes in copy", () => {
