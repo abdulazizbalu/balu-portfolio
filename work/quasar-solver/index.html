@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>quasar-solver: QUBO simulated annealing vs classical heuristics, benchmarked | Abdulaziz Balu</title>
+    <meta name="description" content="A reproducible benchmark of QUBO simulated annealing against 2-opt on TSP and tiny CVRP, measured against proven Held-Karp optima with 95% confidence intervals." />
+    <meta name="keywords" content="QUBO, simulated annealing, TSP benchmark, vehicle routing, quantum-inspired optimization, operations research" />
+    <meta name="author" content="Abdulaziz Abdujalilov" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#040904" />
+    <link rel="canonical" href="https://abdulazizbalu.github.io/balu-portfolio/work/quasar-solver/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Abdulaziz Balu" />
+    <meta property="og:title" content="quasar-solver: QUBO simulated annealing vs classical heuristics, benchmarked" />
+    <meta property="og:description" content="A reproducible benchmark of QUBO simulated annealing against 2-opt on TSP and tiny CVRP, measured against proven Held-Karp optima with 95% confidence intervals." />
+    <meta property="og:url" content="https://abdulazizbalu.github.io/balu-portfolio/work/quasar-solver/" />
+    <meta property="og:image" content="https://abdulazizbalu.github.io/balu-portfolio/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="quasar-solver: QUBO simulated annealing vs classical heuristics, benchmarked" />
+    <meta name="twitter:description" content="A reproducible benchmark of QUBO simulated annealing against 2-opt on TSP and tiny CVRP, measured against proven Held-Karp optima with 95% confidence intervals." />
+    <meta name="twitter:image" content="https://abdulazizbalu.github.io/balu-portfolio/og.png" />
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/style.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Abdulaziz Balu", "item": "https://abdulazizbalu.github.io/balu-portfolio/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://abdulazizbalu.github.io/balu-portfolio/#work"}, {"@type": "ListItem", "position": 3, "name": "quasar-solver", "item": "https://abdulazizbalu.github.io/balu-portfolio/work/quasar-solver/"}]}, {"@type": "SoftwareSourceCode", "name": "quasar-solver", "headline": "quasar-solver: QUBO simulated annealing vs classical heuristics, benchmarked", "description": "A reproducible benchmark of QUBO simulated annealing against 2-opt on TSP and tiny CVRP, measured against proven Held-Karp optima with 95% confidence intervals.", "url": "https://abdulazizbalu.github.io/balu-portfolio/work/quasar-solver/", "codeRepository": "https://github.com/abdulazizbalu/quasar-solver", "programmingLanguage": "Python", "author": {"@type": "Person", "name": "Abdulaziz Abdujalilov", "url": "https://abdulazizbalu.github.io/balu-portfolio/"}, "keywords": "QUBO, simulated annealing, TSP benchmark, vehicle routing, quantum-inspired optimization, operations research"}, {"@type": "WebPage", "url": "https://abdulazizbalu.github.io/balu-portfolio/work/quasar-solver/", "name": "quasar-solver: QUBO simulated annealing vs classical heuristics, benchmarked | Abdulaziz Balu", "inLanguage": "en", "dateModified": "2026-10-20", "isPartOf": {"@id": "https://abdulazizbalu.github.io/balu-portfolio/#site"}}]}</script>
+    <script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113689053', 'ym');ym(113689053, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});</script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/113689053" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  </head>
+  <body class="page-case">
+    <div class="crt" aria-hidden="true"></div>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="top">
+      <a class="logo" href="../../">balu<span>@</span>tashkent<span>:~$</span></a>
+      <nav aria-label="Sections"><a href="../../#work">./work</a><a href="../../#nda">./clients</a><a href="../../#services">./services</a><a href="../../#history">./history</a><a href="../../#contact">./contact</a></nav>
+      
+      <a class="lang" href="../../ru/" hreflang="ru" lang="ru">RU</a>
+      <span class="status"><b></b> open to contracts</span>
+    </header>
+    <main id="main" class="case-main">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">~</a> / <a href="../../#work">work</a> / <span>quasar-solver</span></nav>
+      <article class="case-article">
+        <header class="case-head">
+          <p class="eyebrow">// Optimization benchmark · 2026</p>
+          <h1>quasar-solver</h1>
+          <p class="lead">Quantum-inspired optimizers are often sold on demos. quasar-solver asks a plain question: how far from the proven optimum does QUBO annealing land, with honest confidence intervals?</p>
+          <div class="stats case-stats"><div class="stat"><strong>100</strong><span>runs per size</span></div><div class="stat"><strong>20</strong><span>cities, proven optimum</span></div><div class="stat"><strong>86.7% → 3.7%</strong><span>gap after swap moves</span></div><div class="stat"><strong>95%</strong><span>confidence intervals</span></div></div>
+        </header>
+        <div class="case-body">
+          <h2><span class="ps">#</span> Setup</h2>
+          <p>Each size has ten seeded Euclidean instances and ten solver seeds. The reference for every instance, including 15 and 20 cities, is the proven Held-Karp optimum. All methods get the same budget of attempted operations.</p>
+          <h2><span class="ps">#</span> Results</h2>
+          <ul><li>Bit-flip QUBO annealing reaches an 86.65% mean gap at 20 cities: one-hot penalty landscapes are hard to search.</li><li>A permutation-preserving swap move brings the gap down to 3.69%, still 3.32 points above multi-start 2-opt at 0.37%.</li><li>At 10 cities swap annealing is slightly ahead of 2-opt (0.27% vs 0.41%), a small difference in these runs.</li></ul>
+          <h2><span class="ps">#</span> What is inside</h2>
+          <ul><li>QUBO builder and simulated annealing solver</li><li>TSP, capacitated VRP and VRP with time windows, with independent feasibility checks</li><li>OR-Tools reference solvers</li><li>Interactive route visualization demo</li></ul>
+        </div>
+        <aside class="case-side">
+          <div class="win"><div class="win-bar"><i></i><i></i><i></i><span>~/quasar-solver</span></div>
+            <div class="win-body">
+              <p class="cmd">$ cat stack.txt</p><ul class="stack"><li>Python</li><li>QUBO</li><li>simulated annealing</li><li>OR-Tools</li><li>Held-Karp</li></ul>
+              <p class="cmd">$ ls links/</p><ul class="case-links"><li><a href="https://github.com/abdulazizbalu/quasar-solver" target="_blank" rel="noopener">Repository</a></li><li><a href="https://github.com/abdulazizbalu/quasar-solver/blob/main/benchmarks/results/summary.md" target="_blank" rel="noopener">Benchmark summary</a></li><li><a href="https://abdulazizbalu.github.io/quasar-solver/demos/web_demo.html" target="_blank" rel="noopener">Route demo</a></li></ul>
+            </div></div>
+          <div class="win hire"><div class="win-body">
+            <p class="cmd">$ ./hire</p>
+            <p>Need something like this built or verified?</p>
+            <a class="btn primary" href="https://t.me/Abdulaziz6301" target="_blank" rel="noopener">telegram @Abdulaziz6301</a>
+          </div></div>
+        </aside>
+      </article>
+      <section class="related"><h2><span class="ps">$</span> ls ../</h2><ul><li><a href="../cobol-equiv/"><span class="r-title">cobol-equiv</span><span class="r-text">Differential testing harness and a Python runtime for COBOL numeric semantics. GnuCOBOL is the oracle; unsupported cases are refused, never guessed.</span></a></li><li><a href="../pricing-crosscheck/"><span class="r-title">pricing-crosscheck</span><span class="r-text">Cross-validation of derivative pricing engines: QuantLib&#x27;s analytic, tree, PDE and Monte Carlo engines against independent NumPy references.</span></a></li><li><a href="../nur/"><span class="r-title">Nur</span><span class="r-text">Local AI office assistant for Windows. Gemma 4 through Ollama: no cloud, no API keys. Russian UI with tasks for Russian and Uzbek speakers.</span></a></li></ul></section>
+    </main>
+    <footer class="foot">
+      <span><span class="ps">balu@tashkent:~$</span> echo "build smart. ship clean. operate reliably."<b class="cursor"></b></span>
+      <span>© 2026 Abdulaziz Abdujalilov · <a href="https://t.me/Abdulaziz6301" target="_blank" rel="noopener">telegram</a> · <a href="https://github.com/abdulazizbalu" target="_blank" rel="noopener">github</a> · <a href="https://www.linkedin.com/in/abdulaziz-abdujalilov-436a4a250/" target="_blank" rel="noopener">linkedin</a></span>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

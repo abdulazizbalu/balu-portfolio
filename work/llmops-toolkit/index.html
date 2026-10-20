@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LLMOps toolkit: release guard, observability and RAG deployment | Abdulaziz Balu</title>
+    <meta name="description" content="Three small projects for running AI services: a CI release guard (health, rollback, budget, model policy), an observability kit (p95 latency, tokens, cost, error budget) and a RAG deployment blueprint." />
+    <meta name="keywords" content="LLMOps, AI observability, release guard, RAG deployment, AI DevOps" />
+    <meta name="author" content="Abdulaziz Abdujalilov" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#040904" />
+    <link rel="canonical" href="https://abdulazizbalu.github.io/balu-portfolio/work/llmops-toolkit/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Abdulaziz Balu" />
+    <meta property="og:title" content="LLMOps toolkit: release guard, observability and RAG deployment" />
+    <meta property="og:description" content="Three small projects for running AI services: a CI release guard (health, rollback, budget, model policy), an observability kit (p95 latency, tokens, cost, error budget) and a RAG deployment blueprint." />
+    <meta property="og:url" content="https://abdulazizbalu.github.io/balu-portfolio/work/llmops-toolkit/" />
+    <meta property="og:image" content="https://abdulazizbalu.github.io/balu-portfolio/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LLMOps toolkit: release guard, observability and RAG deployment" />
+    <meta name="twitter:description" content="Three small projects for running AI services: a CI release guard (health, rollback, budget, model policy), an observability kit (p95 latency, tokens, cost, error budget) and a RAG deployment blueprint." />
+    <meta name="twitter:image" content="https://abdulazizbalu.github.io/balu-portfolio/og.png" />
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/style.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Abdulaziz Balu", "item": "https://abdulazizbalu.github.io/balu-portfolio/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://abdulazizbalu.github.io/balu-portfolio/#work"}, {"@type": "ListItem", "position": 3, "name": "LLMOps Toolkit", "item": "https://abdulazizbalu.github.io/balu-portfolio/work/llmops-toolkit/"}]}, {"@type": "SoftwareSourceCode", "name": "LLMOps Toolkit", "headline": "LLMOps toolkit: release guard, observability and RAG deployment", "description": "Three small projects for running AI services: a CI release guard (health, rollback, budget, model policy), an observability kit (p95 latency, tokens, cost, error budget) and a RAG deployment blueprint.", "url": "https://abdulazizbalu.github.io/balu-portfolio/work/llmops-toolkit/", "codeRepository": "https://github.com/abdulazizbalu/llmops-release-guard", "programmingLanguage": "JavaScript", "author": {"@type": "Person", "name": "Abdulaziz Abdujalilov", "url": "https://abdulazizbalu.github.io/balu-portfolio/"}, "keywords": "LLMOps, AI observability, release guard, RAG deployment, AI DevOps"}, {"@type": "WebPage", "url": "https://abdulazizbalu.github.io/balu-portfolio/work/llmops-toolkit/", "name": "LLMOps toolkit: release guard, observability and RAG deployment | Abdulaziz Balu", "inLanguage": "en", "dateModified": "2026-10-20", "isPartOf": {"@id": "https://abdulazizbalu.github.io/balu-portfolio/#site"}}]}</script>
+    <script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113689053', 'ym');ym(113689053, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});</script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/113689053" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  </head>
+  <body class="page-case">
+    <div class="crt" aria-hidden="true"></div>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="top">
+      <a class="logo" href="../../">balu<span>@</span>tashkent<span>:~$</span></a>
+      <nav aria-label="Sections"><a href="../../#work">./work</a><a href="../../#nda">./clients</a><a href="../../#services">./services</a><a href="../../#history">./history</a><a href="../../#contact">./contact</a></nav>
+      
+      <a class="lang" href="../../ru/" hreflang="ru" lang="ru">RU</a>
+      <span class="status"><b></b> open to contracts</span>
+    </header>
+    <main id="main" class="case-main">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">~</a> / <a href="../../#work">work</a> / <span>llmops-toolkit</span></nav>
+      <article class="case-article">
+        <header class="case-head">
+          <p class="eyebrow">// Operating AI in production</p>
+          <h1>LLMOps Toolkit</h1>
+          <p class="lead">AI apps fail differently from normal apps: cost spikes, latency spikes, prompt regressions, model outages and missing rollback paths. These tools bring DevOps habits to LLM products.</p>
+          <div class="stats case-stats"><div class="stat"><strong>6</strong><span>release checks</span></div><div class="stat"><strong>6</strong><span>AI health signals</span></div><div class="stat"><strong>4</strong><span>compose services</span></div><div class="stat"><strong>1</strong><span>incident runbook</span></div></div>
+        </header>
+        <div class="case-body">
+          <h2><span class="ps">#</span> LLMOps Release Guard</h2>
+          <ul><li>health endpoint exists</li><li>rollback plan documented</li><li>budget and token limits configured</li><li>model provider approved</li><li>observability enabled</li><li>required environment variables declared</li></ul>
+          <h2><span class="ps">#</span> AI Observability Kit</h2>
+          <ul><li>p95 latency</li><li>token usage</li><li>estimated model cost</li><li>success rate</li><li>error budget burn</li><li>slowest route and model pair</li></ul>
+          <h2><span class="ps">#</span> RAG Deploy Blueprint</h2>
+          <ul><li>config validator</li><li>Dockerfile and Compose with API, vector DB, Redis and worker</li><li>health checks and readiness</li><li>incident runbook</li><li>CI validation</li></ul>
+        </div>
+        <aside class="case-side">
+          <div class="win"><div class="win-bar"><i></i><i></i><i></i><span>~/llmops-toolkit</span></div>
+            <div class="win-body">
+              <p class="cmd">$ cat stack.txt</p><ul class="stack"><li>JavaScript</li><li>Docker</li><li>GitHub Actions</li></ul>
+              <p class="cmd">$ ls links/</p><ul class="case-links"><li><a href="https://github.com/abdulazizbalu/llmops-release-guard" target="_blank" rel="noopener">Release guard</a></li><li><a href="https://github.com/abdulazizbalu/ai-observability-kit" target="_blank" rel="noopener">Observability kit</a></li><li><a href="https://github.com/abdulazizbalu/rag-deploy-blueprint" target="_blank" rel="noopener">RAG deploy blueprint</a></li></ul>
+            </div></div>
+          <div class="win hire"><div class="win-body">
+            <p class="cmd">$ ./hire</p>
+            <p>Need something like this built or verified?</p>
+            <a class="btn primary" href="https://t.me/Abdulaziz6301" target="_blank" rel="noopener">telegram @Abdulaziz6301</a>
+          </div></div>
+        </aside>
+      </article>
+      <section class="related"><h2><span class="ps">$</span> ls ../</h2><ul><li><a href="../cobol-equiv/"><span class="r-title">cobol-equiv</span><span class="r-text">Differential testing harness and a Python runtime for COBOL numeric semantics. GnuCOBOL is the oracle; unsupported cases are refused, never guessed.</span></a></li><li><a href="../pricing-crosscheck/"><span class="r-title">pricing-crosscheck</span><span class="r-text">Cross-validation of derivative pricing engines: QuantLib&#x27;s analytic, tree, PDE and Monte Carlo engines against independent NumPy references.</span></a></li><li><a href="../quasar-solver/"><span class="r-title">quasar-solver</span><span class="r-text">Reproducible benchmark of QUBO simulated annealing vs classical heuristics on TSP and tiny CVRP, measured against proven optima.</span></a></li></ul></section>
+    </main>
+    <footer class="foot">
+      <span><span class="ps">balu@tashkent:~$</span> echo "build smart. ship clean. operate reliably."<b class="cursor"></b></span>
+      <span>© 2026 Abdulaziz Abdujalilov · <a href="https://t.me/Abdulaziz6301" target="_blank" rel="noopener">telegram</a> · <a href="https://github.com/abdulazizbalu" target="_blank" rel="noopener">github</a> · <a href="https://www.linkedin.com/in/abdulaziz-abdujalilov-436a4a250/" target="_blank" rel="noopener">linkedin</a></span>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

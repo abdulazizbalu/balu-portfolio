@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>cobol-equiv: differential testing for COBOL to Python migration | Abdulaziz Balu</title>
+    <meta name="description" content="A reproducible harness that proves a Python translation of a COBOL program behaves exactly like the original, with GnuCOBOL as the oracle. 9,769 generated cases, 0 differences, plus a benchmark of LLM translations." />
+    <meta name="keywords" content="COBOL to Python, COBOL migration testing, differential testing, GnuCOBOL, COMP-3, legacy modernization, LLM code translation benchmark" />
+    <meta name="author" content="Abdulaziz Abdujalilov" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#040904" />
+    <link rel="canonical" href="https://abdulazizbalu.github.io/balu-portfolio/work/cobol-equiv/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Abdulaziz Balu" />
+    <meta property="og:title" content="cobol-equiv: differential testing for COBOL to Python migration" />
+    <meta property="og:description" content="A reproducible harness that proves a Python translation of a COBOL program behaves exactly like the original, with GnuCOBOL as the oracle. 9,769 generated cases, 0 differences, plus a benchmark of LLM translations." />
+    <meta property="og:url" content="https://abdulazizbalu.github.io/balu-portfolio/work/cobol-equiv/" />
+    <meta property="og:image" content="https://abdulazizbalu.github.io/balu-portfolio/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="cobol-equiv: differential testing for COBOL to Python migration" />
+    <meta name="twitter:description" content="A reproducible harness that proves a Python translation of a COBOL program behaves exactly like the original, with GnuCOBOL as the oracle. 9,769 generated cases, 0 differences, plus a benchmark of LLM translations." />
+    <meta name="twitter:image" content="https://abdulazizbalu.github.io/balu-portfolio/og.png" />
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/style.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Abdulaziz Balu", "item": "https://abdulazizbalu.github.io/balu-portfolio/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://abdulazizbalu.github.io/balu-portfolio/#work"}, {"@type": "ListItem", "position": 3, "name": "cobol-equiv", "item": "https://abdulazizbalu.github.io/balu-portfolio/work/cobol-equiv/"}]}, {"@type": "SoftwareSourceCode", "name": "cobol-equiv", "headline": "cobol-equiv: differential testing for COBOL to Python migration", "description": "A reproducible harness that proves a Python translation of a COBOL program behaves exactly like the original, with GnuCOBOL as the oracle. 9,769 generated cases, 0 differences, plus a benchmark of LLM translations.", "url": "https://abdulazizbalu.github.io/balu-portfolio/work/cobol-equiv/", "codeRepository": "https://github.com/abdulazizbalu/cobol-equiv", "programmingLanguage": "Python", "author": {"@type": "Person", "name": "Abdulaziz Abdujalilov", "url": "https://abdulazizbalu.github.io/balu-portfolio/"}, "keywords": "COBOL to Python, COBOL migration testing, differential testing, GnuCOBOL, COMP-3, legacy modernization, LLM code translation benchmark"}, {"@type": "WebPage", "url": "https://abdulazizbalu.github.io/balu-portfolio/work/cobol-equiv/", "name": "cobol-equiv: differential testing for COBOL to Python migration | Abdulaziz Balu", "inLanguage": "en", "dateModified": "2026-10-20", "isPartOf": {"@id": "https://abdulazizbalu.github.io/balu-portfolio/#site"}}]}</script>
+    <script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113689053', 'ym');ym(113689053, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});</script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/113689053" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  </head>
+  <body class="page-case">
+    <div class="crt" aria-hidden="true"></div>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="top">
+      <a class="logo" href="../../">balu<span>@</span>tashkent<span>:~$</span></a>
+      <nav aria-label="Sections"><a href="../../#work">./work</a><a href="../../#nda">./clients</a><a href="../../#services">./services</a><a href="../../#history">./history</a><a href="../../#contact">./contact</a></nav>
+      
+      <a class="lang" href="../../ru/" hreflang="ru" lang="ru">RU</a>
+      <span class="status"><b></b> open to contracts</span>
+    </header>
+    <main id="main" class="case-main">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">~</a> / <a href="../../#work">work</a> / <span>cobol-equiv</span></nav>
+      <article class="case-article">
+        <header class="case-head">
+          <p class="eyebrow">// COBOL to Python migration testing · 2026</p>
+          <h1>cobol-equiv</h1>
+          <p class="lead">Banks and insurers are rewriting COBOL with LLMs. The hard part is not the translation, it is proving the new code behaves exactly like the old one, down to rounding and storage. cobol-equiv is the tool for that proof.</p>
+          <div class="stats case-stats"><div class="stat"><strong>9,769</strong><span>generated cases</span></div><div class="stat"><strong>0</strong><span>diffs vs GnuCOBOL 3.1.2</span></div><div class="stat"><strong>33</strong><span>semantic rules modelled</span></div><div class="stat"><strong>100%</strong><span>LLM translations pass after repair</span></div></div>
+        </header>
+        <div class="case-body">
+          <h2><span class="ps">#</span> The problem</h2>
+          <p>Most COBOL migration tools translate code. Very few can show that the translation is equivalent. COBOL numeric semantics are subtle: PICTURE clauses, packed decimals (COMP-3), truncation, ROUNDED, ON SIZE ERROR and intermediate precision all change the bytes a program writes.</p>
+          <h2><span class="ps">#</span> What I built</h2>
+          <ul><li>A Python runtime for COBOL data and arithmetic semantics: PICTURE, USAGE DISPLAY / COMP-3 / COMP / COMP-5, MOVE, numeric editing, ROUNDED, ON SIZE ERROR, STRING / UNSTRING / INSPECT. Every rule is compared byte for byte with GnuCOBOL; cases it does not model are refused with an error instead of guessed.</li><li>A differential harness that compiles the COBOL program with cobc, runs it and the Python translation on the same inputs (regression vectors plus Hypothesis-generated ones derived from record layouts), compares stdout and output files byte for byte and reports the first difference by line and field.</li><li>A pre-registered benchmark of LLM-produced translations, measured with the harness.</li></ul>
+          <h2><span class="ps">#</span> Results</h2>
+          <div class="tbl"><table><thead><tr><th>check</th><th>result</th></tr></thead><tbody><tr><td>Runtime vs GnuCOBOL 3.1.2</td><td>9,769 generated cases in 33 rules: 9,652 agree, 0 disagree, 117 refused as unsupported</td></tr><tr><td>Reference translations</td><td>10 of 10 pass regression and boundary vectors</td></tr><tr><td>Mutation testing</td><td>67 mutants, 9 equivalent; 52 killed, 6 missed</td></tr><tr><td>GnuCOBOL 3.1.2 vs 3.2</td><td>the compilers themselves differ in 104 cases</td></tr></tbody></table></div>
+          <h2><span class="ps">#</span> Benchmark: LLM translations of COBOL</h2>
+          <p>Translations were scored on held-out inputs never shown to the model. One call with the runtime library passed 92% of attempts on the external corpus; with up to three repair rounds driven by harness feedback, 100%. All 408 passing translations also pass on GnuCOBOL 3.2.</p>
+          <div class="tbl"><table><thead><tr><th>condition</th><th>held-out pass, external corpus</th></tr></thead><tbody><tr><td>one call, with runtime</td><td>83/90 (92.2%)</td></tr><tr><td>plus up to 3 repair rounds</td><td>90/90 (100%)</td></tr><tr><td>one call, stdlib only</td><td>82/90 (91.1%)</td></tr></tbody></table></div>
+          <h2><span class="ps">#</span> Why it matters</h2>
+          <p>It turns a migration from a leap of faith into a measurable process: every translated program carries a byte-level equivalence report, and every unsupported construct is flagged instead of silently mistranslated.</p>
+        </div>
+        <aside class="case-side">
+          <div class="win"><div class="win-bar"><i></i><i></i><i></i><span>~/cobol-equiv</span></div>
+            <div class="win-body">
+              <p class="cmd">$ cat stack.txt</p><ul class="stack"><li>Python</li><li>GnuCOBOL 3.1.2 / 3.2</li><li>Hypothesis</li><li>mutation testing</li><li>GitHub Actions</li></ul>
+              <p class="cmd">$ ls links/</p><ul class="case-links"><li><a href="https://github.com/abdulazizbalu/cobol-equiv" target="_blank" rel="noopener">Repository</a></li><li><a href="https://github.com/abdulazizbalu/cobol-equiv/blob/main/docs/benchmark.md" target="_blank" rel="noopener">Benchmark write-up</a></li><li><a href="https://github.com/abdulazizbalu/cobol-equiv/blob/main/results/SUMMARY.md" target="_blank" rel="noopener">Results summary</a></li></ul>
+            </div></div>
+          <div class="win hire"><div class="win-body">
+            <p class="cmd">$ ./hire</p>
+            <p>Need something like this built or verified?</p>
+            <a class="btn primary" href="https://t.me/Abdulaziz6301" target="_blank" rel="noopener">telegram @Abdulaziz6301</a>
+          </div></div>
+        </aside>
+      </article>
+      <section class="related"><h2><span class="ps">$</span> ls ../</h2><ul><li><a href="../pricing-crosscheck/"><span class="r-title">pricing-crosscheck</span><span class="r-text">Cross-validation of derivative pricing engines: QuantLib&#x27;s analytic, tree, PDE and Monte Carlo engines against independent NumPy references.</span></a></li><li><a href="../quasar-solver/"><span class="r-title">quasar-solver</span><span class="r-text">Reproducible benchmark of QUBO simulated annealing vs classical heuristics on TSP and tiny CVRP, measured against proven optima.</span></a></li><li><a href="../nur/"><span class="r-title">Nur</span><span class="r-text">Local AI office assistant for Windows. Gemma 4 through Ollama: no cloud, no API keys. Russian UI with tasks for Russian and Uzbek speakers.</span></a></li></ul></section>
+    </main>
+    <footer class="foot">
+      <span><span class="ps">balu@tashkent:~$</span> echo "build smart. ship clean. operate reliably."<b class="cursor"></b></span>
+      <span>© 2026 Abdulaziz Abdujalilov · <a href="https://t.me/Abdulaziz6301" target="_blank" rel="noopener">telegram</a> · <a href="https://github.com/abdulazizbalu" target="_blank" rel="noopener">github</a> · <a href="https://www.linkedin.com/in/abdulaziz-abdujalilov-436a4a250/" target="_blank" rel="noopener">linkedin</a></span>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

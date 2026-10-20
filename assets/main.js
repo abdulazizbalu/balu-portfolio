@@ -100,6 +100,7 @@
 
   // retype the boot sequence (static HTML stays as no-JS fallback)
   const boot = async () => {
+    if (!term) return;
     const items = [...term.children].map((p) => ({ cls: p.className, cmd: p.classList.contains("line"), text: p.classList.contains("line") ? p.textContent.replace(PS, "").trim() : p.textContent }));
     if (reduce) return;
     term.replaceChildren();
@@ -123,7 +124,7 @@
       }
     }
   };
-  boot();
+  if (term) boot();
 
   // glitch the banner now and then
   const banner = document.querySelector(".banner");
