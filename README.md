@@ -1,21 +1,14 @@
-<div align="center">
+# balu-portfolio
 
-# Balu Portfolio
+Terminal-style portfolio of Abdulaziz Abdujalilov (Balu): AI Specialist, Full-Stack Developer, LLMOps.
 
-![Portfolio](https://img.shields.io/badge/Portfolio-AI%20%2B%20Full--Stack%20%2B%20Media-020617?style=for-the-badge)
-![CI](https://img.shields.io/github/actions/workflow/status/abdulazizbalu/balu-portfolio/ci.yml?style=for-the-badge&label=CI)
+Live: https://abdulazizbalu.github.io/balu-portfolio/
 
-Personal portfolio website for **Abdulaziz Balu**.
+- `index.html` static page, works without JavaScript
+- `script.js` boot animation, interactive terminal (`help`, `ls`, `open <repo>`, `contact`, `sudo hire-me`), project filters
+- `style.css` green CRT theme, respects `prefers-reduced-motion`
+- client work is listed by industry only; names and internals stay under NDA
 
-[Live site](https://abdulazizbalu.github.io/balu-portfolio/)
-
-</div>
-
-## Focus
-
-This site presents one clear positioning:
-
-**AI Specialist & Full-Stack Developer | Digital Media Strategist**
-
-It links together the five portfolio projects into one coherent product story.
-
+```sh
+npm test
+```
