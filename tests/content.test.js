@@ -5,7 +5,9 @@ const path = require("node:path");
 
 const read = (p) => fs.readFileSync(p, "utf8");
 const cases = fs.readdirSync("work").filter((d) => fs.existsSync(path.join("work", d, "index.html")));
-const pages = ["index.html", "ru/index.html", "404.html", ...cases.map((d) => `work/${d}/index.html`)];
+const svc = fs.existsSync("services") ? fs.readdirSync("services") : [];
+const pages = ["index.html", "ru/index.html", "404.html", ...cases.map((d) => `work/${d}/index.html`),
+  ...svc.map((d) => `services/${d}/index.html`), ...svc.map((d) => `ru/services/${d}/index.html`)];
 const home = read("index.html");
 const ru = read("ru/index.html");
 
@@ -41,10 +43,20 @@ test("every page has SEO basics", () => {
   assert.match(ru, /<html lang="ru"/);
 });
 
+test("service pages exist in both languages", () => {
+  assert.ok(svc.length >= 4, `only ${svc.length} service pages`);
+  for (const slug of ["telegram-bots", "websites", "web-apps", "ai"]) {
+    assert.ok(svc.includes(slug), slug);
+    assert.match(read(`services/${slug}/index.html`), /hreflang="ru"/);
+  }
+  assert.match(home, /Telegram bots/);
+});
+
 test("sitemap lists every indexable page", () => {
   const sm = read("sitemap.xml");
   assert.match(sm, /\/ru\//);
   for (const d of cases) assert.match(sm, new RegExp(`/work/${d}/`), d);
+  for (const d of svc) assert.match(sm, new RegExp(`/ru/services/${d}/`), d);
   assert.match(read("robots.txt"), /Sitemap: https:\/\//);
 });
 

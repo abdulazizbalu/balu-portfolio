@@ -108,7 +108,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .polaroid .cap { position: absolute; left: 0; right: 0; bottom: 10px; font: 700 25px/1 var(--hand); }
 .tape { position: absolute; top: -15px; left: 50%; width: 112px; height: 30px; margin-left: -56px; background: rgba(238, 214, 140, 0.7); transform: rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
 .tape.r { left: auto; right: -24px; top: 18px; transform: rotate(38deg); width: 90px; }
-.hint { position: absolute; right: 322px; top: 418px; width: 200px; text-align: right; font: 700 24px/1.1 var(--hand); color: var(--blue); transform: rotate(-4deg); }
+.hint { position: absolute; right: 300px; top: 470px; width: 200px; text-align: right; font: 700 24px/1.1 var(--hand); color: var(--blue); transform: rotate(-4deg); }
 .hint svg { display: block; margin: 0 0 2px auto; }
 .sticky {
   position: absolute; right: 10px; top: 520px; width: 214px; padding: 18px 18px 20px; background: var(--note); color: #1d2433;
@@ -117,7 +117,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .sticky:hover { transform: rotate(-2deg) translateY(-3px); }
 .sticky a { display: inline-block; margin-top: 6px; font-size: 24px; color: #1d2433; }
 .tally { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; max-width: 780px; margin-top: 64px; padding-top: 18px; border-top: 2px dashed var(--rule); }
-.tally strong { display: block; font: 500 28px/1.1 var(--mono); letter-spacing: -0.02em; }
+.tally strong { display: block; font: 500 22px/1.15 var(--mono); letter-spacing: -0.02em; white-space: nowrap; }
 .tally span { display: block; margin-top: 6px; font-size: 14px; color: var(--soft); line-height: 1.4; }
 .tally-note { margin-top: 10px; font: 700 21px/1 var(--hand); color: var(--blue); transform: rotate(-1.5deg); display: inline-block; }
 
@@ -289,6 +289,42 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .nf h1 { font: 600 clamp(40px, 6vw, 64px)/1.05 var(--sans); letter-spacing: -0.035em; }
 .nf p { margin-top: 16px; font-size: 18px; color: var(--ink-2); }
 
+
+/* what I build: hero checklist */
+.builds { display: grid; grid-template-columns: 1fr; gap: 2px; max-width: 440px; margin-top: 22px; }
+.builds a { display: flex; align-items: baseline; gap: 8px; padding: 4px 0; text-decoration: none; font: 500 16px/1.35 var(--sans); color: var(--ink); border-bottom: 2px dashed transparent; }
+.builds a:hover { border-bottom-color: var(--rule); }
+.builds .tick { font: 700 22px/1 var(--hand); color: var(--blue); }
+.builds .pr { margin-left: auto; font: 700 21px/1 var(--hand); color: var(--red); white-space: nowrap; }
+
+/* offers: priced index cards */
+.offers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 30px; max-width: 1010px; }
+.offer { position: relative; display: flex; flex-direction: column; padding: 26px 24px 20px; background: var(--card); color: #1d2433; box-shadow: var(--shadow); background-image: repeating-linear-gradient(transparent 0 25px, #d7e4f3 25px 26px); }
+.offer:nth-child(odd) { transform: rotate(-0.6deg); }
+.offer:nth-child(even) { transform: rotate(0.5deg); }
+.offer h3 { font: 600 20px/1.3 var(--sans); }
+.offer h3 a { color: #1d2433; text-decoration: none; }
+.offer h3 a:hover { text-decoration: underline; text-decoration-style: wavy; text-decoration-color: #c93c33; text-underline-offset: 5px; }
+.offer p { margin-top: 8px; font-size: 15px; line-height: 26px; color: #39414f; }
+.offer .price { margin-top: 14px; font: 700 34px/1 var(--hand); color: #c93c33; transform: rotate(-2deg); transform-origin: left; }
+.offer .time { margin-top: 6px; font: 13.5px/1.4 var(--mono); color: #5f6676; }
+.offer .go { margin-top: 14px; align-self: flex-start; font: 500 14.5px/1.4 var(--mono); color: #1d2433; text-decoration: underline; text-underline-offset: 4px; }
+.offer .go:hover { text-decoration-color: #c93c33; }
+.also { margin-top: 34px; max-width: 760px; color: var(--soft); font-size: 15.5px; }
+.also b { color: var(--ink); font-weight: 600; }
+
+/* FAQ */
+.faq { max-width: 800px; border-top: 2px dashed var(--rule); }
+.faq details { border-bottom: 2px dashed var(--rule); }
+.faq summary { position: relative; padding: 15px 34px 15px 0; cursor: pointer; list-style: none; font: 600 16.5px/1.45 var(--sans); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 8px; font: 700 28px/1 var(--hand); color: var(--red); transition: transform .2s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 0 16px; color: var(--ink-2); font-size: 15.5px; max-width: 700px; }
+.prose .faq summary { font-size: 16px; }
+.svc-h1 { font-family: var(--sans) !important; letter-spacing: -0.035em !important; }
+.case-head .cta { margin-top: 26px; }
+
 /* ---------------------------------------------------------------- responsive */
 @media (max-width: 1180px) {
   .hero { min-height: 0; }
@@ -316,6 +352,8 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .sticky { margin: 22px 0 0 6px; width: 200px; font-size: 24px; }
   .sec > .mg { display: none; }
   .tally { grid-template-columns: 1fr 1fr; }
+  .builds { grid-template-columns: 1fr; }
+  .offers { grid-template-columns: 1fr; }
   .sec { padding-top: 76px; }
   .entry { grid-template-columns: 34px minmax(0, 1fr); gap: 10px 12px; }
   .entry .n { font-size: 28px; }
