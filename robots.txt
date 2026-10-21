@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abdulazizbalu.github.io/balu-portfolio/sitemap.xml
+Sitemap: https://balu.is-a.dev/sitemap.xml
