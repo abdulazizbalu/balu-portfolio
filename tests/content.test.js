@@ -41,6 +41,12 @@ test("the only contact email is the gmail address", () => {
   }
 });
 
+test("service timelines use the current values", () => {
+  // bots and sites up to 3 days, AI 1-2 weeks, web apps 2-4 weeks (EN and RU)
+  const stale = /\b(3–4|4–8|2–3) (weeks|недел[а-яё]*)|Websites · 1–2 weeks|Mini Apps · 1–2 (weeks|недели)|Сайты · 1–2 недели|AI features · 2–4 weeks|AI-функции · 2–4 недели|bot or a site usually takes 1–2|сайт обычно 1–2/;
+  for (const p of [...pages, "assets/data/os.en.json", "assets/data/os.ru.json"]) assert.doesNotMatch(read(p), stale, p);
+});
+
 test("mailto subjects are fully encoded", () => {
   for (const p of pages) {
     for (const [, q] of read(p).matchAll(/href="mailto:[^"?]*\?([^"]*)"/g)) assert.doesNotMatch(q, /&(?!amp;)/, `${p}: raw & in ${q}`);

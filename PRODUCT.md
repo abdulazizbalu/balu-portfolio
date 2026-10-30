@@ -18,7 +18,7 @@ Personal portfolio of Abdulaziz Abdujalilov (Balu), a freelance full-stack and A
 
 ## Positioning
 
-"I build software, then I prove it works." The differentiator is verifiability: every claim is backed by tests, evals, a reference to compare against, and reproducible numbers (cobol-equiv: 9,769 cases, 0 diffs vs GnuCOBOL; pricing-crosscheck: 27k+ grid points, 8 documented findings; quasar-solver: gap 86.7% → 3.7% against proven optima). Typical timelines are stated up front (1–2 weeks for most builds), with a fixed scope and date after a 20-minute call.
+"I build software, then I prove it works." The differentiator is verifiability: every claim is backed by tests, evals, a reference to compare against, and reproducible numbers (cobol-equiv: 9,769 cases, 0 diffs vs GnuCOBOL; pricing-crosscheck: 27k+ grid points, 8 documented findings; quasar-solver: gap 86.7% → 3.7% against proven optima). Typical timelines are stated up front (bots and sites up to 3 days, AI features 1–2 weeks, web apps and MVPs 2–4 weeks; payments, admin panels and multilingual CMS sites are quoted after the call), with a fixed scope and date after a 20-minute call.
 
 ## Operating Context
 
