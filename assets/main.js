@@ -176,7 +176,7 @@
     ? { gmail: "открыть в Gmail", outlook: "открыть в Outlook", copy: "скопировать адрес", app: "почтовое приложение", done: "скопировано ✓" }
     : { gmail: "open in Gmail", outlook: "open in Outlook", copy: "copy address", app: "default mail app", done: "copied ✓" };
   let pick = null, opener = null;
-  const closePick = (refocus) => { pick?.remove(); pick = null; if (refocus) opener?.focus(); };
+  const closePick = (refocus) => { const el = pick; pick = null; el?.remove(); if (refocus) opener?.focus(); };
   document.addEventListener("click", (ev) => {
     if (pick?.contains(ev.target)) return; // the picker's own links, including "default mail app"
     if (pick) closePick();
@@ -210,6 +210,15 @@
       setTimeout(closePick, 900);
     });
     pick.querySelectorAll("a").forEach((x) => x.addEventListener("click", () => { goal("email_click"); setTimeout(closePick, 50); }));
+    // the picker lives at the end of <body>, so keep Tab in step with the link that opened it:
+    // Shift+Tab from the first item goes back to the link, Tab from the last one continues after it
+    pick.addEventListener("keydown", (e) => {
+      if (e.key !== "Tab") return;
+      const items = pick.querySelectorAll("a, button");
+      if (e.shiftKey && document.activeElement === items[0]) { e.preventDefault(); closePick(true); }
+      else if (!e.shiftKey && document.activeElement === items[items.length - 1]) closePick(true);
+    });
+    pick.addEventListener("focusout", (e) => { if (pick && e.relatedTarget && !pick.contains(e.relatedTarget)) closePick(); });
     pick.querySelector("a")?.focus();
   });
   addEventListener("keydown", (ev) => { if (ev.key === "Escape" && pick) closePick(true); });
