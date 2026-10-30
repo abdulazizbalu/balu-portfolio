@@ -82,6 +82,9 @@ a { color: inherit; }
 p { margin: 0; }
 h1, h2, h3 { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
+/* hit areas: every link and button at least 24px tall; the negative margin keeps the layout where it was */
+.top .me, .top nav a, .top .right a, .lights, .alt-links a, .cta .scroll, .offer .go, .links a, .entry h3 a, .envelope .small a,
+.crumbs a, .lfoot-me, .lfoot button, .lfoot-cols a { padding-block: 4px; margin-block: -4px; }
 :focus-visible { outline: 2px dashed var(--focus); outline-offset: 4px; border-radius: 4px; }
 .offer, .icard, .fig, .envelope, .sticky, .side .card, .mailpick { --focus: var(--on-paper-focus); }
 .nw { display: inline-block; max-width: 100%; }
@@ -106,7 +109,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .top .me { color: var(--ink); font-weight: 500; }
 .top nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
 .top .right { margin-left: auto; display: flex; gap: 14px; align-items: baseline; }
-.lights { background: none; border: 0; padding: 0; cursor: pointer; font: 700 1.25rem/1 var(--hand); color: var(--blue); }
+.lights { background: none; border: 0; padding: 4px 0; margin-block: -4px; cursor: pointer; font: 700 1.25rem/1 var(--hand); color: var(--blue); }
 .lights:hover { color: var(--red); }
 
 /* ---------------------------------------------------------------- hero */
@@ -127,9 +130,12 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .pen.fill { background: var(--ink); color: var(--paper); }
 .pen.fill:hover { box-shadow: 3px 3px 0 var(--red); }
 .scroll { font: 700 1.375rem/1 var(--hand); color: var(--blue); text-decoration: none; }
+.scroll:hover { text-decoration: underline; text-decoration-style: wavy; text-decoration-color: var(--red); text-underline-offset: 5px; }
+.reply-note { font: 700 1.3125rem/1.1 var(--hand); color: var(--red); transform: rotate(-2deg); }
+.alt-links { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; }
 .polaroid {
   position: absolute; right: 0; top: 70px; width: 340px; padding: 12px 12px 50px; background: var(--card); box-shadow: var(--shadow);
-  transform: rotate(3deg); cursor: pointer; transition: transform .3s cubic-bezier(.3,1.4,.5,1); border: 0; text-align: center; color: #1d2433;
+  display: block; text-decoration: none; transform: rotate(3deg); cursor: pointer; transition: transform .3s cubic-bezier(.3,1.4,.5,1); border: 0; text-align: center; color: #1d2433;
 }
 .polaroid:hover { transform: rotate(1.5deg) scale(1.015); }
 .polaroid:active { transform: rotate(4deg) scale(.99); }
@@ -137,7 +143,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .polaroid .cap { position: absolute; left: 0; right: 0; bottom: 10px; font: 700 1.5625rem/1 var(--hand); }
 .tape { position: absolute; top: -15px; left: 50%; width: 112px; height: 30px; margin-left: -56px; background: rgba(238, 214, 140, 0.7); transform: rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
 .tape.r { left: auto; right: -24px; top: 18px; transform: rotate(38deg); width: 90px; }
-.hint { position: absolute; right: 300px; top: 470px; width: 200px; text-align: right; font: 700 1.5rem/1.1 var(--hand); color: var(--blue); transform: rotate(-4deg); }
+.hint { position: absolute; right: 300px; top: 430px; width: 200px; text-align: right; font: 700 1.5rem/1.1 var(--hand); color: var(--blue); transform: rotate(-4deg); }
 .hint svg { display: block; margin: 0 0 2px auto; }
 .sticky {
   position: absolute; right: 10px; top: 520px; width: 214px; padding: 18px 18px 20px; background: var(--note); color: #1d2433;
@@ -146,15 +152,22 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .sticky:hover { transform: rotate(-2deg) translateY(-3px); }
 .sticky a { display: inline-block; margin-top: 6px; font-size: 1.5rem; color: #1d2433; }
 .tally { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; max-width: 780px; margin-top: 64px; padding-top: 18px; border-top: 2px dashed var(--rule); }
+/* the hero proof cells need room for "0 расхождений": two columns at every width */
+.hero .tally { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.hero .tally strong { white-space: normal; }
+.tally > a { display: block; color: inherit; text-decoration: none; }
+.tally > a:hover strong { text-decoration: underline; text-decoration-style: wavy; text-decoration-color: var(--red); text-underline-offset: 5px; }
 .tally strong { display: block; font: 500 1.375rem/1.15 var(--mono); letter-spacing: -0.02em; white-space: nowrap; }
 .tally span { display: block; margin-top: 6px; font-size: 0.875rem; color: var(--soft); line-height: 1.4; }
 .tally-note { margin-top: 10px; font: 700 1.3125rem/1 var(--hand); color: var(--blue); transform: rotate(-1.5deg); display: inline-block; }
 
 /* ---------------------------------------------------------------- sections */
 .sec { position: relative; padding-top: 104px; scroll-margin-top: 20px; }
-.sec > .mg { top: 100px; font-size: 1.875rem; }
 .sec-h { font: 600 0.875rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: 0.09em; color: var(--soft); }
 .sec-h b { color: var(--ink); font-weight: 600; }
+/* numbered section headings on the home pages: mono number, sans words */
+.sec > .sec-h { font: 600 clamp(1.75rem, 1.2rem + 1.2vw, 2.125rem)/1.15 var(--sans); text-transform: none; letter-spacing: -0.02em; color: var(--ink); }
+.sec > .sec-h .sec-n { margin-right: 0.15em; font: 500 0.62em/1 var(--mono); letter-spacing: 0.02em; color: var(--red); vertical-align: 0.18em; }
 .sec-p { max-width: 640px; margin-top: 10px; color: var(--soft); font-size: 1rem; }
 .sec-body { margin-top: 26px; }
 
@@ -202,6 +215,14 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .icard .meta { display: flex; gap: 10px; align-items: baseline; font: 0.78125rem/1.4 var(--mono); color: #5f6676; height: 22px; }
 .icard .bar { display: inline-block; width: 92px; height: 13px; background: #1d2433; transform: rotate(-1deg) translateY(2px); border-radius: 2px; }
 .icard .stamp { position: absolute; right: 16px; top: 12px; padding: 2px 8px; border: 2px solid #c93c33; color: #c93c33; font: 700 0.75rem/1.3 var(--mono); letter-spacing: .14em; transform: rotate(8deg); opacity: .85; }
+.icard .sector { margin-top: 14px; font: 600 0.8125rem/1.4 var(--mono); color: #39414f; letter-spacing: .02em; }
+.icard .sector + h3 { margin-top: 2px; }
+.more-cards { max-width: 1010px; margin-top: 30px; }
+.more-cards summary { display: inline-block; padding: 4px 0; cursor: pointer; list-style: none; font: 700 1.5rem/1.2 var(--hand); color: var(--blue); }
+.more-cards summary::-webkit-details-marker { display: none; }
+.more-cards summary:hover { text-decoration: underline; text-decoration-style: wavy; text-decoration-color: var(--red); text-underline-offset: 5px; }
+.more-cards[open] summary { color: var(--soft); }
+.more-cards .cards { margin-top: 26px; }
 .icard h3 { margin-top: 14px; font: 600 1.0625rem/1.4 var(--sans); }
 .icard p { margin-top: 4px; font-size: 0.9375rem; line-height: 24px; color: #39414f; }
 .icard .stack { margin-top: 10px; font: 700 1.1875rem/1.2 var(--hand); color: #2747a8; }
@@ -253,10 +274,20 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .envelope .cta { margin-top: 26px; }
 .envelope .pen { background: transparent; color: #1d2433; border-color: #1d2433; }
 .envelope .pen.fill { background: #1d2433; color: #ffe98c; }
+.envelope .reply-line { margin-top: 18px; max-width: 560px; font: 700 1.5rem/1.2 var(--hand); color: #2747a8; transform: rotate(-1deg); }
 .envelope .small { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 22px; font: 0.875rem var(--mono); }
 .envelope .small a { color: #39414f; }
 .copy-ok { font: 700 1.375rem/1 var(--hand); color: #c93c33; opacity: 0; transition: opacity .2s; }
 .copy-ok.on { opacity: 1; }
+/* p.s. after the contact note: earlier and side work, kept but out of the way */
+.ps { position: relative; padding: 0 0 80px; }
+.ps-h { font: 700 1.625rem/1.2 var(--hand); color: var(--blue); transform: rotate(-1deg); }
+.ps .hist { margin-top: 14px; }
+.ps .diary { margin-top: 8px; }
+/* one handwritten nudge to write, right after the proof section */
+.nudge { margin-top: 30px; font: 700 1.625rem/1.25 var(--hand); transform: rotate(-1deg); }
+.nudge a { color: var(--blue); text-decoration: none; }
+.nudge a:hover { text-decoration: underline; text-decoration-style: wavy; text-decoration-color: var(--red); text-underline-offset: 5px; }
 .contact .hand-note { position: absolute; left: 640px; top: 70px; font-size: 1.625rem; transform: rotate(5deg); }
 
 
@@ -286,7 +317,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .lfoot-social a { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid rgba(255, 255, 255, .18); border-radius: 50%; color: #fff; opacity: .7; transition: opacity .25s ease, border-color .25s ease; }
 .lfoot-social a:hover { opacity: 1; border-color: rgba(255, 255, 255, .5); }
 .lfoot-social svg { width: 18px; height: 18px; }
-.lfoot button { margin-top: 18px; background: none; border: 0; padding: 0; cursor: pointer; font: 700 1.1875rem/1 var(--hand); color: #9cc3ff; }
+.lfoot button { margin: 14px 0 -4px; background: none; border: 0; padding: 4px 0; cursor: pointer; font: 700 1.1875rem/1 var(--hand); color: #9cc3ff; }
 .lfoot button:hover { color: #fff; }
 .lfoot-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; }
 .lfoot-cols h2 { font: 600 0.9375rem/1.4 var(--sans); color: #fff; }
@@ -340,7 +371,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .case-head .mg { top: 6px; }
 .case-head .kicker { font: 700 1.5rem/1 var(--hand); color: var(--red); transform: rotate(-1.5deg); display: inline-block; }
 .case-head h1 { margin-top: 12px; font: 600 clamp(1.75rem, 3.6vw, 2.75rem)/1.12 var(--sans); letter-spacing: -0.03em; }
-.case-head .lead { margin-top: 18px; font-size: 1.1875rem; color: var(--ink-2); }
+.case-head .lead { max-width: 65ch; margin-top: 18px; font-size: 1.1875rem; color: var(--ink-2); }
 .case-tally { margin-top: 40px; }
 .case-grid { display: grid; grid-template-columns: minmax(0, 700px) 280px; gap: 70px; margin-top: 56px; align-items: start; }
 .prose h2 { margin: 46px 0 10px; font: 600 0.875rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .09em; color: var(--soft); }
@@ -372,11 +403,6 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 
 
 /* what I build: hero checklist */
-.builds { display: grid; grid-template-columns: 1fr; gap: 2px; max-width: 440px; margin-top: 22px; }
-.builds a { display: flex; align-items: baseline; gap: 8px; padding: 4px 0; text-decoration: none; font: 500 1rem/1.35 var(--sans); color: var(--ink); border-bottom: 2px dashed transparent; }
-.builds a:hover { border-bottom-color: var(--rule); }
-.builds .tick { font: 700 1.375rem/1 var(--hand); color: var(--blue); }
-.builds .pr { margin-left: auto; font: 700 1.3125rem/1 var(--hand); color: var(--red); white-space: nowrap; }
 
 /* offers: priced index cards */
 .offers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 30px; max-width: 1010px; }
@@ -422,8 +448,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .case-grid { grid-template-columns: 1fr; gap: 50px; }
   .side { position: static; max-width: 420px; }
   .flow { flex-wrap: wrap; }
-  .hero .tally { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero .tally strong { white-space: normal; }
+  .tally strong { white-space: normal; }
 }
 @media (max-width: 760px) {
   :root { --gutter: 44px; --cell: 20px; }
@@ -432,16 +457,16 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .book::before { left: 26px; }
   .mg { position: static; display: block; width: auto; text-align: left; transform: rotate(-2deg); transform-origin: left; margin-bottom: 6px; }
   .top { padding-top: 22px; gap: 4px 16px; }
-  .top nav { display: none; }
+  /* sections as a strip of paper under the name: wraps to a second line, scrolls away with the page */
+  .top nav { order: 3; width: 100%; gap: 0 16px; margin-top: 10px; padding: 2px 12px; background: var(--card); box-shadow: var(--shadow); transform: rotate(-0.4deg); --focus: var(--on-paper-focus); }
+  .top nav a { padding: 6px 0; color: var(--on-paper-ink); }
   .hero { padding-top: 44px; }
   .hero .lead { font-size: 1.0625rem; }
   .polaroid { width: min(300px, 92%); margin: 44px auto 0; }
   .polaroid canvas { height: 220px; }
   .sticky { margin: 22px 0 0 6px; width: 200px; font-size: 1.5rem; }
-  .sec > .mg { display: none; }
   .tally { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tally strong { white-space: normal; }
-  .builds { grid-template-columns: 1fr; }
   .offers { grid-template-columns: 1fr; }
   .sec { padding-top: 76px; }
   .entry { grid-template-columns: 34px minmax(0, 1fr); gap: 10px 12px; }
@@ -465,6 +490,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .envelope { padding: 28px 22px; }
 }
 @media (max-width: 360px) {
+  .hero .tally { grid-template-columns: 1fr; }
   .hero .big { font-size: 2.125rem; }
   .envelope .pen { max-width: 100%; padding-inline: 12px; font-size: 0.875rem; }
 }
