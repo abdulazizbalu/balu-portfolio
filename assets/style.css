@@ -1,5 +1,27 @@
 /* Engineer's notebook. Graph paper, a red margin, typed notes and handwriting.
    "Lights off" switches the page to a blueprint. */
+
+/* fonts are self-hosted copies of the Google Fonts files (OFL, see fonts/OFL-*.txt) */
+@font-face { font-family: "Caveat"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/caveat-700-cyrillic-ext.woff2") format("woff2"); unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "Caveat"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/caveat-700-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Caveat"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/caveat-700-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Caveat"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/caveat-700-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/ibm-plex-mono-400-cyrillic-ext.woff2") format("woff2"); unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/ibm-plex-mono-400-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/ibm-plex-mono-400-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/ibm-plex-mono-400-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/ibm-plex-mono-500-cyrillic-ext.woff2") format("woff2"); unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/ibm-plex-mono-500-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/ibm-plex-mono-500-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/ibm-plex-mono-500-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/ibm-plex-mono-600-cyrillic-ext.woff2") format("woff2"); unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/ibm-plex-mono-600-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/ibm-plex-mono-600-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/ibm-plex-mono-600-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("fonts/ibm-plex-sans-cyrillic-ext.woff2") format("woff2"); unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("fonts/ibm-plex-sans-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("fonts/ibm-plex-sans-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 :root {
   --paper: #fbfaf5;
   --grid: #dde6f0;
@@ -7,7 +29,7 @@
   --ink: #1d2433;
   --ink-2: #39414f;
   --soft: #5f6676;
-  --faint: #8a90a0;
+  --faint: #6b7183;
   --blue: #2747a8;
   --red: #c93c33;
   --hl: #ffe58a;
@@ -15,6 +37,11 @@
   --card: #ffffff;
   --rule: #c7cfdb;
   --shadow: 0 14px 30px -14px rgba(20, 30, 60, 0.35);
+  /* paper objects (cards, notes, figures) stay light in both modes, so text and focus on them
+     use these instead of the page tokens */
+  --on-paper-ink: #1d2433;
+  --on-paper-focus: #2747a8;
+  --focus: var(--blue);
   --sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
   --hand: "Caveat", "Segoe Print", "Comic Sans MS", cursive;
@@ -55,7 +82,9 @@ a { color: inherit; }
 p { margin: 0; }
 h1, h2, h3 { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
-:focus-visible { outline: 2px dashed var(--blue); outline-offset: 4px; border-radius: 4px; }
+:focus-visible { outline: 2px dashed var(--focus); outline-offset: 4px; border-radius: 4px; }
+.offer, .icard, .fig, .envelope, .sticky, .side .card, .mailpick { --focus: var(--on-paper-focus); }
+.nw { white-space: nowrap; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--paper); padding: 8px 12px; z-index: 100; }
 .skip:focus { left: 12px; }
 .hand { font-family: var(--hand); font-weight: 700; color: var(--blue); letter-spacing: 0; }
@@ -148,9 +177,9 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .fig { position: relative; align-self: start; background: var(--card); color: #1d2433; padding: 10px 10px 34px; box-shadow: var(--shadow); transform: rotate(-1.6deg); }
 .entry:nth-child(even) .fig { transform: rotate(1.8deg); }
 .fig canvas { display: block; width: 100%; height: 170px; background: #f5f4ef; }
-.fig .cap { position: absolute; left: 10px; right: 10px; bottom: 7px; font: 700 20px/1 var(--hand); text-align: center; }
+.fig .cap { position: absolute; left: 10px; right: 10px; bottom: 7px; font: 700 20px/1 var(--hand); text-align: center; color: var(--on-paper-ink); }
 .card-ticker { height: 170px; padding: 10px 12px; overflow: hidden; background: repeating-linear-gradient(#fff 0 23px, #cfe0f3 23px 24px); background-color: #fff; font: 12.5px/24px var(--mono); color: #39414f; }
-.card-ticker p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-ticker p { color: #39414f; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card-ticker .ok { color: #2747a8; font-weight: 600; }
 
 /* compact list */
@@ -230,13 +259,6 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .copy-ok.on { opacity: 1; }
 .contact .hand-note { position: absolute; left: 640px; top: 70px; font-size: 26px; transform: rotate(5deg); }
 
-/* footer */
-.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding: 26px 0 44px; border-top: 2px dashed var(--rule); font: 13.5px/1.5 var(--mono); color: var(--faint); }
-.foot a { color: var(--soft); text-decoration: none; }
-.foot a:hover { color: var(--ink); }
-.foot .links-f { display: flex; flex-wrap: wrap; gap: 6px 18px; }
-.foot button { background: none; border: 0; padding: 0; cursor: pointer; font: 700 19px/1 var(--hand); color: var(--blue); }
-.foot button:hover { color: var(--red); }
 
 /* landscape footer: solid night sky that runs into the picture below it.
    --footer-sky is the average of the picture's top 5% (scripts/footer-images.py). */
@@ -388,7 +410,12 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .hero { min-height: 0; }
   .polaroid { position: relative; top: auto; right: auto; margin: 56px 0 0 auto; }
   .hint { display: none; }
-  .sticky { position: relative; right: auto; top: auto; margin: -40px 0 0 20px; }
+  .sticky { position: relative; right: auto; top: auto; margin: 26px 0 0 20px; }
+  .row { grid-template-columns: minmax(0, 190px) minmax(0, 1fr) 24px; }
+  .row .d { grid-column: 2; grid-row: 1 / span 2; }
+  .row .l { grid-column: 1; grid-row: 2; }
+  .row .a { grid-column: 3; grid-row: 1; }
+  .contact .hand-note { position: static; display: inline-block; margin: 28px 0 0 24px; transform: rotate(-2deg); }
   .entry { grid-template-columns: 46px minmax(0, 1fr); }
   .entry .fig { grid-column: 2; max-width: 320px; margin-top: 8px; }
   .case-grid { grid-template-columns: 1fr; gap: 50px; }
@@ -418,7 +445,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .entry h3 { font-size: 18px; }
   .entry .ev { display: block; margin: 6px 0 0; }
   .row { grid-template-columns: minmax(0, 1fr) 20px; gap: 4px 10px; }
-  .row .d { grid-column: 1; }
+  .row .d { grid-column: 1; grid-row: auto; }
   .row .l { display: none; }
   .row .a { grid-row: 1; grid-column: 2; }
   .cards { grid-template-columns: 1fr; }
@@ -432,6 +459,11 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .contact { padding: 80px 0 60px; }
   .contact .hand-note { display: none; }
   .envelope { padding: 28px 22px; }
+}
+@media (max-width: 360px) {
+  .tally strong { white-space: normal; }
+  .hero .big { font-size: 34px; }
+  .envelope .pen { max-width: 100%; padding-inline: 12px; font-size: 14px; }
 }
 
 /* email picker */

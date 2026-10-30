@@ -8,7 +8,7 @@ body.os-on { overflow: hidden; }
   color-scheme: dark;
 }
 
-body.os-on > .top, body.os-on > main, body.os-on > .foot, body.os-on > .lfoot { visibility: hidden; }
+body.os-on > .top, body.os-on > main, body.os-on > .lfoot { visibility: hidden; }
 
 #os {
   position: fixed; inset: 0; z-index: 1000; overflow: hidden; user-select: none;

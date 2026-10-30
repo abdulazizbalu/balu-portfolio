@@ -175,26 +175,30 @@
   const L = RU
     ? { gmail: "открыть в Gmail", outlook: "открыть в Outlook", copy: "скопировать адрес", app: "почтовое приложение", done: "скопировано ✓" }
     : { gmail: "open in Gmail", outlook: "open in Outlook", copy: "copy address", app: "default mail app", done: "copied ✓" };
-  let pick = null;
-  const closePick = () => { pick?.remove(); pick = null; };
+  let pick = null, opener = null;
+  const closePick = (refocus) => { pick?.remove(); pick = null; if (refocus) opener?.focus(); };
   document.addEventListener("click", (ev) => {
-    if (pick && !pick.contains(ev.target)) closePick();
+    if (pick?.contains(ev.target)) return; // the picker's own links, including "default mail app"
+    if (pick) closePick();
     const a = ev.target.closest('a[href^="mailto:"]');
     if (!a || a.hasAttribute("data-copy")) return;
     ev.preventDefault();
-    const u = new URL(a.href.replace("mailto:", "https://x/?to="));
-    const to = decodeURIComponent(a.href.slice(7).split("?")[0]);
-    const su = u.searchParams.get("subject") || "";
+    opener = a;
+    // mailto:addr?subject=...: split on "?" ourselves, URL() would fold the query into the address
+    const [addr, query = ""] = a.getAttribute("href").slice(7).split("?");
+    const to = decodeURIComponent(addr);
+    const su = new URLSearchParams(query).get("subject") || "";
     const q = encodeURIComponent;
     pick = document.createElement("div");
     pick.className = "mailpick";
-    pick.setAttribute("role", "menu");
+    pick.setAttribute("role", "group");
+    pick.setAttribute("aria-label", to);
     pick.innerHTML =
       `<p class="addr">${to}</p>` +
-      `<a role="menuitem" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=${q(to)}&su=${q(su)}">${L.gmail}</a>` +
-      `<a role="menuitem" target="_blank" rel="noopener" href="https://outlook.live.com/mail/0/deeplink/compose?to=${q(to)}&subject=${q(su)}">${L.outlook}</a>` +
-      `<button type="button" role="menuitem" data-c>${L.copy}</button>` +
-      `<a role="menuitem" href="${a.href}">${L.app}</a>`;
+      `<a target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=${q(to)}&su=${q(su)}">${L.gmail}</a>` +
+      `<a target="_blank" rel="noopener" href="https://outlook.live.com/mail/0/deeplink/compose?to=${q(to)}&subject=${q(su)}">${L.outlook}</a>` +
+      `<button type="button" data-c>${L.copy}</button>` +
+      `<a href="mailto:${to}${su ? "?subject=" + q(su) : ""}">${L.app}</a>`;
     document.body.appendChild(pick);
     const r = a.getBoundingClientRect();
     const left = Math.min(Math.max(12, r.left), innerWidth - pick.offsetWidth - 12);
@@ -208,11 +212,25 @@
     pick.querySelectorAll("a").forEach((x) => x.addEventListener("click", () => { goal("email_click"); setTimeout(closePick, 50); }));
     pick.querySelector("a")?.focus();
   });
-  addEventListener("keydown", (ev) => { if (ev.key === "Escape") closePick(); });
+  addEventListener("keydown", (ev) => { if (ev.key === "Escape" && pick) closePick(true); });
 
   // ---------------------------------------------------------------- retro OS easter egg
+  // os.js and its data load only when someone asks for the OS: data-os is the script, data-os-data the JSON.
+  const osCapable = matchMedia("(min-width: 1024px) and (pointer: fine)").matches;
+  let osLoad = null;
+  const bootOS = (b) => {
+    osLoad ||= fetch(b.dataset.osData).then((r) => r.json()).then((d) => new Promise((ok, fail) => {
+      window.baluData = d;
+      const s = document.createElement("script");
+      s.src = b.dataset.os; s.onload = ok; s.onerror = fail;
+      document.body.appendChild(s);
+    }));
+    osLoad.then(() => window.baluOS?.start(), () => { osLoad = null; });
+  };
   $$("[data-os]").forEach((b) => {
-    b.hidden = !(window.baluOS && window.baluOS.capable);
-    b.addEventListener("click", () => { goal("os_boot"); window.baluOS?.start(); });
+    b.hidden = !osCapable;
+    b.addEventListener("click", () => { goal("os_boot"); bootOS(b); });
   });
+  const osBtn = document.querySelector("[data-os]");
+  if (osBtn && osCapable && /[?&]os\b/.test(location.search)) bootOS(osBtn);
 })();
