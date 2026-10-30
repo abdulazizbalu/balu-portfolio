@@ -411,9 +411,9 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .polaroid { position: relative; top: auto; right: auto; margin: 56px 0 0 auto; }
   .hint { display: none; }
   .sticky { position: relative; right: auto; top: auto; margin: 26px 0 0 20px; }
-  .row { grid-template-columns: minmax(0, 190px) minmax(0, 1fr) 24px; }
+  .row { grid-template-columns: minmax(0, 190px) minmax(0, 1fr) 24px; grid-template-rows: auto 1fr; row-gap: 6px; }
   .row .d { grid-column: 2; grid-row: 1 / span 2; }
-  .row .l { grid-column: 1; grid-row: 2; }
+  .row .l { grid-column: 1; grid-row: 2; align-self: start; }
   .row .a { grid-column: 3; grid-row: 1; }
   .contact .hand-note { position: static; display: inline-block; margin: 28px 0 0 24px; transform: rotate(-2deg); }
   .entry { grid-template-columns: 46px minmax(0, 1fr); }
@@ -444,7 +444,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .entry .n { font-size: 28px; }
   .entry h3 { font-size: 18px; }
   .entry .ev { display: block; margin: 6px 0 0; }
-  .row { grid-template-columns: minmax(0, 1fr) 20px; gap: 4px 10px; }
+  .row { grid-template-columns: minmax(0, 1fr) 20px; grid-template-rows: none; gap: 4px 10px; }
   .row .d { grid-column: 1; grid-row: auto; }
   .row .l { display: none; }
   .row .a { grid-row: 1; grid-column: 2; }
