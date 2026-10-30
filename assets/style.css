@@ -284,6 +284,10 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .ps-h { font: 700 1.625rem/1.2 var(--hand); color: var(--blue); transform: rotate(-1deg); }
 .ps .hist { margin-top: 14px; }
 .ps .diary { margin-top: 8px; }
+/* one handwritten nudge to write, right after the proof section */
+.nudge { margin-top: 30px; font: 700 1.625rem/1.25 var(--hand); transform: rotate(-1deg); }
+.nudge a { color: var(--blue); text-decoration: none; }
+.nudge a:hover { text-decoration: underline; text-decoration-style: wavy; text-decoration-color: var(--red); text-underline-offset: 5px; }
 .contact .hand-note { position: absolute; left: 640px; top: 70px; font-size: 1.625rem; transform: rotate(5deg); }
 
 
@@ -367,7 +371,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .case-head .mg { top: 6px; }
 .case-head .kicker { font: 700 1.5rem/1 var(--hand); color: var(--red); transform: rotate(-1.5deg); display: inline-block; }
 .case-head h1 { margin-top: 12px; font: 600 clamp(1.75rem, 3.6vw, 2.75rem)/1.12 var(--sans); letter-spacing: -0.03em; }
-.case-head .lead { margin-top: 18px; font-size: 1.1875rem; color: var(--ink-2); }
+.case-head .lead { max-width: 65ch; margin-top: 18px; font-size: 1.1875rem; color: var(--ink-2); }
 .case-tally { margin-top: 40px; }
 .case-grid { display: grid; grid-template-columns: minmax(0, 700px) 280px; gap: 70px; margin-top: 56px; align-items: start; }
 .prose h2 { margin: 46px 0 10px; font: 600 0.875rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .09em; color: var(--soft); }
