@@ -1,9 +1,8 @@
 /* BALU-OS: a small desktop environment on top of the portfolio page.
    The page itself stays the source of truth for search engines and small screens. */
 (() => {
-  const dataEl = document.getElementById("balu-data");
-  if (!dataEl) return;
-  const D = JSON.parse(dataEl.textContent);
+  const D = window.baluData; // fetched by main.js before it loads this file
+  if (!D) return;
   const RU = D.lang === "ru";
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const capable = matchMedia("(min-width: 1024px) and (pointer: fine)").matches;
@@ -717,7 +716,6 @@
   }
 
   // ------------------------------------------------------------------ init (after all declarations)
-  // Retro mode is opt-in: launched from the command palette or the footer link.
+  // Retro mode is opt-in: main.js loads this file when the footer link is clicked (or with ?os).
   window.baluOS = { capable, start: () => start(false), stop: teardown };
-  if (/[?&]os\b/.test(location.search) && capable) start(false);
 })();

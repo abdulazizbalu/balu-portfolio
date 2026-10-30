@@ -19,8 +19,25 @@ test("positioning is present", () => {
 });
 
 test("flagship open-source projects are linked", () => {
+  // the retro OS project list used to be inlined in index.html; it now loads from assets/data
+  const linked = home + read("assets/data/os.en.json");
   for (const repo of ["cobol-equiv", "pricing-crosscheck", "quasar-solver", "nur", "ai-eval-lab"]) {
-    assert.match(home, new RegExp(`https://github.com/abdulazizbalu/${repo}`));
+    assert.match(linked, new RegExp(`https://github.com/abdulazizbalu/${repo}`));
+  }
+});
+
+test("every page has the landscape footer and self-hosted fonts", () => {
+  for (const p of pages) {
+    const html = read(p);
+    assert.match(html, /<footer class="lfoot"/, `${p}: footer`);
+    assert.doesNotMatch(html, /<footer class="foot"/, `${p}: old footer`);
+    assert.doesNotMatch(html, /fonts\.googleapis\.com/, `${p}: google fonts`);
+  }
+});
+
+test("mailto subjects are fully encoded", () => {
+  for (const p of pages) {
+    for (const [, q] of read(p).matchAll(/href="mailto:[^"?]*\?([^"]*)"/g)) assert.doesNotMatch(q, /&(?!amp;)/, `${p}: raw & in ${q}`);
   }
 });
 
