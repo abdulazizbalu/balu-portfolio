@@ -54,6 +54,29 @@
     rv.forEach((n) => io.observe(n));
   } else rv.forEach((n) => n.classList.add("in"));
 
+  // ---------------------------------------------------------------- landscape footer: rise in, slight parallax
+  const lfoot = document.querySelector("[data-lfoot]");
+  const land = lfoot?.querySelector(".lfoot-land");
+  const img = land?.querySelector("img");
+  if (lfoot && land && img && "IntersectionObserver" in window && !reduce) {
+    const LIFT = 40;
+    let raf = 0, on = false;
+    const move = () => {
+      raf = 0;
+      const r = land.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (innerHeight - r.top) / r.height));
+      img.style.setProperty("--py", (-LIFT * p).toFixed(1) + "px");
+    };
+    const queue = () => { if (on && !raf) raf = requestAnimationFrame(move); };
+    new IntersectionObserver((es) => es.forEach((en) => {
+      on = en.isIntersecting;
+      if (en.intersectionRatio >= 0.15) lfoot.classList.add("in");
+      queue();
+    }), { threshold: [0, 0.15] }).observe(land);
+    addEventListener("scroll", queue, { passive: true });
+    addEventListener("resize", queue);
+  } else lfoot?.classList.add("in");
+
   // ---------------------------------------------------------------- sketchy demos
   const sized = (cv) => { const r = Math.min(2, devicePixelRatio || 1); cv.width = cv.clientWidth * r; cv.height = cv.clientHeight * r; return r; };
   const DEMOS = {
