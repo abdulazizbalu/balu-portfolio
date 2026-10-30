@@ -143,7 +143,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .polaroid .cap { position: absolute; left: 0; right: 0; bottom: 10px; font: 700 1.5625rem/1 var(--hand); }
 .tape { position: absolute; top: -15px; left: 50%; width: 112px; height: 30px; margin-left: -56px; background: rgba(238, 214, 140, 0.7); transform: rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
 .tape.r { left: auto; right: -24px; top: 18px; transform: rotate(38deg); width: 90px; }
-.hint { position: absolute; right: 300px; top: 470px; width: 200px; text-align: right; font: 700 1.5rem/1.1 var(--hand); color: var(--blue); transform: rotate(-4deg); }
+.hint { position: absolute; right: 300px; top: 430px; width: 200px; text-align: right; font: 700 1.5rem/1.1 var(--hand); color: var(--blue); transform: rotate(-4deg); }
 .hint svg { display: block; margin: 0 0 2px auto; }
 .sticky {
   position: absolute; right: 10px; top: 520px; width: 214px; padding: 18px 18px 20px; background: var(--note); color: #1d2433;
