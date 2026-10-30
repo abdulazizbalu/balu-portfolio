@@ -35,6 +35,12 @@ test("every page has the landscape footer and self-hosted fonts", () => {
   }
 });
 
+test("the only contact email is the gmail address", () => {
+  for (const p of pages) {
+    for (const [, addr] of read(p).matchAll(/href="mailto:([^"?]*)/g)) assert.equal(addr, "abdushkin2001@gmail.com", `${p}: ${addr}`);
+  }
+});
+
 test("mailto subjects are fully encoded", () => {
   for (const p of pages) {
     for (const [, q] of read(p).matchAll(/href="mailto:[^"?]*\?([^"]*)"/g)) assert.doesNotMatch(q, /&(?!amp;)/, `${p}: raw & in ${q}`);
