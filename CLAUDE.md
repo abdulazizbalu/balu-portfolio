@@ -15,7 +15,7 @@ Read [`PRODUCT.md`](PRODUCT.md) first: audience, positioning, constraints and ev
 The notebook style is a deliberate brand choice. Do not remove, replace or "modernise" any of it:
 
 - graph-paper grid, red margin line, cream paper (`--paper: #fbfaf5`) and the blueprint "lights off" mode;
-- IBM Plex Mono for labels, nav and meta; numbered sections (`01 ·`, `02 ·`, margin numbers, ①②);
+- IBM Plex Mono for labels, nav and meta; numbered sections (the mono `01 ·` in each heading, ①② entry numbers, handwritten margin dates);
 - Caveat handwriting accents (including the struck "hope" / handwritten "prove" headline);
 - tape, taped and tilted paper cards with shadows, ruled index cards, stamps (NDA), sticky notes, dashed rules.
 

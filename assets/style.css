@@ -160,9 +160,11 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 
 /* ---------------------------------------------------------------- sections */
 .sec { position: relative; padding-top: 104px; scroll-margin-top: 20px; }
-.sec > .mg { top: 100px; font-size: 1.875rem; }
 .sec-h { font: 600 0.875rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: 0.09em; color: var(--soft); }
 .sec-h b { color: var(--ink); font-weight: 600; }
+/* numbered section headings on the home pages: mono number, sans words */
+.sec > .sec-h { font: 600 clamp(1.75rem, 1.2rem + 1.2vw, 2.125rem)/1.15 var(--sans); text-transform: none; letter-spacing: -0.02em; color: var(--ink); }
+.sec > .sec-h .sec-n { margin-right: 0.15em; font: 500 0.62em/1 var(--mono); letter-spacing: 0.02em; color: var(--red); vertical-align: 0.18em; }
 .sec-p { max-width: 640px; margin-top: 10px; color: var(--soft); font-size: 1rem; }
 .sec-body { margin-top: 26px; }
 
@@ -457,7 +459,6 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .polaroid { width: min(300px, 92%); margin: 44px auto 0; }
   .polaroid canvas { height: 220px; }
   .sticky { margin: 22px 0 0 6px; width: 200px; font-size: 1.5rem; }
-  .sec > .mg { display: none; }
   .tally { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tally strong { white-space: normal; }
   .offers { grid-template-columns: 1fr; }
