@@ -234,6 +234,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .prs .num { font: 700 1.5625rem/1 var(--hand); color: var(--red); }
 .prs .repo { font: 0.84375rem/1.4 var(--mono); color: var(--soft); }
 .prs .a { font: 700 1.375rem/1 var(--hand); color: var(--red); }
+.prs .kind { margin-right: 6px; padding: 0 5px; border: 1px solid currentColor; border-radius: 3px; font: 600 0.6875rem/1.4 var(--mono); letter-spacing: .04em; color: var(--red); vertical-align: 0.1em; }
 
 /* services */
 .svcs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px 40px; max-width: 1010px; }
@@ -490,6 +491,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .envelope { padding: 28px 22px; }
 }
 @media (max-width: 360px) {
+  .fig .cap { font-size: 1rem; }
   .hero .tally { grid-template-columns: 1fr; }
   .hero .big { font-size: 2.125rem; }
   .envelope .pen { max-width: 100%; padding-inline: 12px; font-size: 0.875rem; }
