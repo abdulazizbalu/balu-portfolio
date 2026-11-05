@@ -201,7 +201,7 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .row:hover { background: linear-gradient(transparent 20%, var(--hl) 20%, var(--hl) 85%, transparent 85%); }
 .row .t { font: 500 1rem/1.4 var(--mono); }
 .row .d { color: var(--soft); font-size: 0.9375rem; }
-.row .l { font: 0.8125rem/1 var(--mono); color: var(--faint); }
+.row .l { font: 0.8125rem/1.4 var(--mono); color: var(--faint); }
 .row .a { font: 700 1.375rem/1 var(--hand); color: var(--red); transition: transform .2s; }
 .row:hover .a { transform: translateX(4px); }
 
